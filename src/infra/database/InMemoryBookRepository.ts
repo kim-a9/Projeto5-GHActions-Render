@@ -14,10 +14,10 @@ export class InMemoryBookRepository implements BookRepository {
 //     return user || null; 
 //   }
 
-//   async findById(id: string): Promise<User | null> {
-//     const user = this.users.find((u) => u.id === id);
-//     return user || null;
-//   }
+  async getById(id: string): Promise<Book | null> {
+    const book = this.books.find((b) => b.id === id);
+    return book || null;
+  }
 
 //   async update(user: User): Promise<void> {
 //     const index = this.users.findIndex((u) => u.id === user.id)

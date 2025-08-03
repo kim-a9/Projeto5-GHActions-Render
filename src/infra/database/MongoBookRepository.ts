@@ -17,11 +17,11 @@ export class MongoBookRepository implements BookRepository {
         //     return books.map((doc) => this.toEntity(doc));
         // };
         
-        // async getByID(id: string): Promise<Book | null> {
-        //     const doc = await BookModel.findOne({ _id: id });
+        async getById(id: string): Promise<Book | null> {
+            const doc = await BookModel.findOne({ _id: id });
 
-        //     return doc ? this.toEntity(doc): null;
-        // };
+            return doc ? this.toEntity(doc): null;
+        };
 
         // async updateBook(book: Book): Promise<Book | null>{
         //     const doc = await BookModel.findByIdAndUpdate(

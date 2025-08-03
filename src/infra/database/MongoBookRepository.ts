@@ -23,19 +23,19 @@ export class MongoBookRepository implements BookRepository {
             return doc ? this.toEntity(doc): null;
         };
 
-        // async updateBook(book: Book): Promise<Book | null>{
-        //     const doc = await BookModel.findByIdAndUpdate(
-        //         book.id, 
-        //         { 
-        //             title: book.title,
-        //             author: book.author,
-        //             genre: book.genre
-        //         },
-        //         { new: true }
-        //     );
-        //     return doc ? this.toEntity(doc): null;
+        async updateBook(book: Book): Promise<Book | null>{
+            const doc = await BookModel.findByIdAndUpdate(
+                book.id, 
+                { 
+                    title: book.title,
+                    author: book.author,
+                    genre: book.genre
+                },
+                { new: true }
+            );
+            return doc ? this.toEntity(doc): null;
 
-        // };
+        };
 
         // async delete(id: string): Promise<void> {
         //     const doc = await BookModel.findByIdAndDelete({ _id: id });

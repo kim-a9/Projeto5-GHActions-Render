@@ -1,5 +1,7 @@
 import { Book } from '../entities/Book';
-import { BookRepository } from "../../core/repositories/BookRepository";
+// import { BookRepository } from "../../core/repositories/BookRepository";
+import { BookRepository } from '../repositories/BookRepository';
+
 
 export interface ICreateBook{
     title: string;

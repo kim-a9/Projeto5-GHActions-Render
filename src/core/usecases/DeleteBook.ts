@@ -1,9 +1,10 @@
 import { Book } from '../entities/Book';
-import { MongoBookRepository } from '../../infra/database/MongoBookRepository';
+// import { MongoBookRepository } from '../../infra/database/MongoBookRepository';
+import { BookRepository } from '../repositories/BookRepository';
 
 
 export class DeleteBook{
-    constructor(private bookRepository: MongoBookRepository) {}
+    constructor(private bookRepository: BookRepository) {}
 
     async execute(id: string): Promise<void> {
         const delBook = await this.bookRepository.getById(id);

@@ -18,9 +18,11 @@ export class MongoBookRepository implements BookRepository {
         // };
         
         async getById(id: string): Promise<Book | null> {
-            const doc = await BookModel.findOne({ _id: id });
+            const doc = await BookModel.findOne({ id: id });
 
-            return doc ? this.toEntity(doc): null;
+            // return doc ? this.toEntity(doc) : null;
+            return this.toEntity(doc) || null;
+
         };
 
         async updateBook(book: Book): Promise<Book | null>{

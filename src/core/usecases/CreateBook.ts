@@ -13,7 +13,7 @@ export class CreateBook {
     constructor(private bookRepo: BookRepository) {}
 
     async execute(data: ICreateBook): Promise<Book> {
-        if (!data.title) {
+        if (!data.title || !data.author) {
             throw new Error('Insira um título para o livro.');
         }
         const book = new Book(

@@ -17,32 +17,30 @@ describe('CreateUser', () => {
             'Romance'
         );
         const book = await createBook.execute(bookData);
-        // const saveBook = await bookRepository.findByEmail(userData.email);
 
         expect(book).toBeInstanceOf(Book);
         expect(book.title).toBe(bookData.title);
         expect(book.author).toBe(bookData.author);
         expect(book.genre).toBe(bookData.genre);
-        // expect(saveUser).not.toBeNull();
 
     });
 
 
-    // it('deve criar um livro com pelo menos informações do título e autor', async () => {
-    //     const bookData = new Book(
+    it('deve criar um livro com pelo menos informações do título e autor', async () => {
+        const emptyData = new Book('', '', 'Romance');
+        if(!emptyData.title || !emptyData.author) {
+            await expect(createBook.execute(emptyData))
+            .rejects.toThrow('Insira um título para o livro.');
+        };
+    
+        
+        
+    });
+
+    // const bookData = new Book(
     //         'Torto Arado', 
     //         'Itamar Vieira Junior',
     //         'Romance'
     //     );
-    //     const book = await createBook.execute(bookData);
-        
-        
-    //     if(!bookData.title || !bookData.author){
-    //        await expect(createBook.execute(bookData))
-    //        .rejects.toThrow('Usuário já existe com esse e-mail');
-    //     }
-
-    // });
-    
    
 });

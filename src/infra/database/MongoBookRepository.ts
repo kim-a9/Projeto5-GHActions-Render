@@ -37,9 +37,9 @@ export class MongoBookRepository implements BookRepository {
 
         };
 
-        // async delete(id: string): Promise<void> {
-        //     const doc = await BookModel.findByIdAndDelete({ _id: id });
+        async delete(id: string): Promise<void> {
+            const doc = await BookModel.findByIdAndDelete({ _id: id });
             
-        // };
+        };
 
 }

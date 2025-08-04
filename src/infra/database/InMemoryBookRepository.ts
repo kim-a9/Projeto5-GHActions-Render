@@ -19,16 +19,16 @@ export class InMemoryBookRepository implements BookRepository {
     return book || null;
   }
 
-//   async update(user: User): Promise<void> {
-//     const index = this.users.findIndex((u) => u.id === user.id)
-//       if(index !== -1){
-//         this.users[index] = user
-//       }
+  // async update(user: Book): Promise<void> {
+  //   const index = this.books.findIndex((b) => b.id === book.id)
+  //     if(index !== -1){
+  //       this.books[index] = book
+  //     }
 
-//   }
+  // }
 
-//   async delete(id: string): Promise<void> {
-//     this.users = this.users.filter((user) => user.id !== id);
+  async delete(id: string): Promise<void> {
+    this.books = this.books.filter((b) => b.id !== id);
     
-//   }
+  }
 }

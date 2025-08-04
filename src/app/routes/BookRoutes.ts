@@ -2,11 +2,13 @@ import { Router } from 'express';
 import { CreateBookController } from '../controllers/CreateBookController';
 import { GetBookByIdController } from '../controllers/GetBookIdController';
 import { UpdateBookController } from '../controllers/UpdateBookController';
+import { DeleteBookController } from '../controllers/DeleteBookController';
 
 const router = Router();
 const createBookController = new CreateBookController();
 const getBookByIController = new GetBookByIdController();
 const updateBookController = new UpdateBookController();
+const deleteBookController = new DeleteBookController();
 
 router.get('/', async (req, res) => {
     res.send('API rodando com sucesso');
@@ -24,14 +26,15 @@ router.patch('/books/:id', async (req, res) => {
     await updateBookController.handle(req, res);
 });
 
+router.delete('/books/:id', async (req, res) => {
+    await deleteBookController.handle(req, res);
+});
+
 // {
 //   "title": "Torto Arado",
 //   "author": "autor",
 //   "genre": "genero"
 // }
-
-
-
 
 
 export { router as bookRoutes };

@@ -1,5 +1,4 @@
 import { Request,  Response } from 'express';
-// import { bookRepository } from '../../infra/database/repositoryInstance';
 import { MongoBookRepository } from '../../infra/database/MongoBookRepository';
 import { CreateBook } from '../../core/usecases/CreateBook';
 import { Book } from '../../core/entities/Book';

@@ -5,7 +5,6 @@ Essa é uma API simples e eficiente para gerenciamento de livros em uma bibliote
 ## 📌 Objetivo
 Permitir operações CRUD (Create, Read, Update, Delete) em registros de livros, com segurança, identificadores únicos e facilidade de testes e manutenção.
 
-
 ## 🛠️ Tecnologias Utilizadas
 - TypeScript
 - Express.js
@@ -14,7 +13,6 @@ Permitir operações CRUD (Create, Read, Update, Delete) em registros de livros,
 - Thunder Client – Testes rápidos no VS Code
 - GitHub Actions – Integração e entrega contínua (CI/CD)
 - Render – Plataforma de deploy da aplicação
-
 
 ## 🚀 Deploy
 A aplicação está hospedada na plataforma Render, permitindo acesso público e escalabilidade automática.
@@ -158,6 +156,7 @@ Exemplo do body enviado:
 3. Deletar livro (DELETE)
 `DELETE http://localhost:3000/books/:id
 `
+
 ---
 
 # 🆕 Futuras Atualizações:

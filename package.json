@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "ts-node-dev --respawn --transpile-only src/main.ts",
     "build": "tsc",
-    "test": "jest --config jest.config.js",
+    "test": "jest --config jest.config.js --detectOpenHandles --forceExit",
     "start": "node dist/infra/server/server.js"
   },
   "keywords": [],

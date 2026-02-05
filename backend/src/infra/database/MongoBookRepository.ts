@@ -4,7 +4,7 @@ import { BookModel } from '../database/MongooseBookModel';
 
 export class MongoBookRepository implements BookRepository {
     private toEntity(doc: any): Book{
-        return new Book(doc.title, doc.author, doc.genre, doc.id); //.toString()
+        return new Book(doc.title, doc.author, doc.genre, doc._id.toString());
         }
         
         async createBook(book: Book): Promise<Book>{
@@ -18,11 +18,12 @@ export class MongoBookRepository implements BookRepository {
         // };
         
         async getById(id: string): Promise<Book | null> {
-            const doc = await BookModel.findOne({ id: id });
+            const doc = await BookModel.findById(id);
+            if (!doc) {
+                return null;
+            }
 
-            // return doc ? this.toEntity(doc) : null;
-            return this.toEntity(doc) || null;
-
+            return this.toEntity(doc);
         };
 
         async updateBook(book: Book): Promise<Book | null>{
@@ -40,7 +41,7 @@ export class MongoBookRepository implements BookRepository {
         };
 
         async delete(id: string): Promise<void> {
-            const doc = await BookModel.findByIdAndDelete({ _id: id });
+            const doc = await BookModel.findByIdAndDelete(id);
             
         };
 

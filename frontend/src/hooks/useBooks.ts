@@ -1,12 +1,15 @@
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
+import type { Book } from '../types/Book';
+
+const api = axios.create({ baseURL: 'http://localhost:3005' });
 
 export function useBooks() {
-    return useQuery({
+    return useQuery<Book[]>({
         queryKey: ['books'],
         queryFn: async () => {
-            const { data } = await axios.get('http://localhost:3000');
-            return data;
+            const response = await api.get('/books');
+            return response.data;
         }
     });
 }

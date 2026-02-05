@@ -8,9 +8,9 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-app.use('/', bookRoutes); 
+app.use(bookRoutes); 
 
-const PORT = config.port;
+// const PORT = config.port;
 const URI = config.mongoUrl;
 
 if(!URI) {
@@ -19,9 +19,9 @@ if(!URI) {
 connectToMongo(URI); 
 
 
-app.listen(PORT, () => {
-  console.log(`Servidor rodando em http://localhost:${PORT}`);
-});
+// app.listen(PORT, () => {
+//   console.log(`Servidor rodando em http://localhost:${PORT}`);
+// });
 
 
 export default app;

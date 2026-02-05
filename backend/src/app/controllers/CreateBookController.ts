@@ -14,7 +14,6 @@ export class CreateBookController{
         const createBook = new CreateBook(bookRepo);
 
         try {
-            // const createBook = new CreateBook(bookRepository);
             await createBook.execute(book);
             return res.status(201).json(book);
         } catch (e: any) {

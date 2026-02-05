@@ -1,6 +1,7 @@
 import { BookRepository } from '../repositories/BookRepository';
 
 interface IUpdateBook{
+    _id?: string;
     title?: string;
     author?: string;
     genre?: string;
@@ -9,8 +10,8 @@ interface IUpdateBook{
 export class UpdateBook{
     constructor(private bookrepository: BookRepository) {}
 
-    async execute(id: string, data: IUpdateBook) {
-        const bookFound = await this.bookrepository.getById(id);
+    async execute(_id: string, data: IUpdateBook) {
+        const bookFound = await this.bookrepository.getById(_id);
 
         if(!bookFound) {
             throw new Error('Não foi possível localizar o livro');

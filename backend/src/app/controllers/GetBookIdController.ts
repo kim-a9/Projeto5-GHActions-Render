@@ -9,10 +9,12 @@ export class GetBookByIdController{
         const bookRepo = new MongoBookRepository();
 
         const getBook = new GetBookByID(bookRepo);
+
         try {
             const book = await getBook.execute(id);
-            return res.status(200).json(book);
-        } catch (e) {
+            return res.status(200).json({book});
+
+        } catch (e: any) {
             return res.status(400).json({ error: e });
         } 
     };

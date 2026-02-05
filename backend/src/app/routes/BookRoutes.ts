@@ -6,7 +6,7 @@ import { DeleteBookController } from '../controllers/DeleteBookController';
 
 const router = Router();
 const createBookController = new CreateBookController();
-const getBookByIController = new GetBookByIdController();
+const getBookByIdController = new GetBookByIdController();
 const updateBookController = new UpdateBookController();
 const deleteBookController = new DeleteBookController();
 
@@ -19,7 +19,7 @@ router.post('/books', async (req, res) => {
 });
 
 router.get('/books/:id', async (req, res) => {
-    await getBookByIController.handle(req, res);
+    await getBookByIdController.handle(req, res);
 });
 
 router.patch('/books/:id', async (req, res) => {
@@ -29,12 +29,5 @@ router.patch('/books/:id', async (req, res) => {
 router.delete('/books/:id', async (req, res) => {
     await deleteBookController.handle(req, res);
 });
-
-// {
-//   "title": "Torto Arado",
-//   "author": "autor",
-//   "genre": "genero"
-// }
-
 
 export { router as bookRoutes };

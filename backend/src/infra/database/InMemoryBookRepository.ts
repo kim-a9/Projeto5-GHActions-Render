@@ -9,10 +9,9 @@ export class InMemoryBookRepository implements BookRepository {
     return book;
   }
 
-//   async findByEmail(email: string): Promise<User | null> {
-//     const user = this.users.find((u) => u.email === email);
-//     return user || null; 
-//   }
+  async getAll(): Promise<Book[] | null> {
+    return this.books.length ? this.books : null;
+  }
 
   async getById(id: string): Promise<Book | null> {
     const book = this.books.find((b) => b.id === id);

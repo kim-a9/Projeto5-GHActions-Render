@@ -5,5 +5,5 @@ export interface BookRepository {
     getById(id: string): Promise<Book | null>;
     updateBook(book: Book): Promise<Book | null>;
     delete(id: string): Promise<void>;
-    // getAll(): Promise<Book[]>;
+    getAll(): Promise<Book[] | null>;
 }

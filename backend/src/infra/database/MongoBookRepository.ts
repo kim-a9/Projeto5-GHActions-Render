@@ -12,10 +12,10 @@ export class MongoBookRepository implements BookRepository {
             return this.toEntity(doc);
         };
 
-        // async getAll(): Promise<Book[]> {
-        //     const books = await BookModel.find();
-        //     return books.map((doc) => this.toEntity(doc));
-        // };
+        async getAll(): Promise<Book[]> {
+            const books = await BookModel.find();
+            return books.map((doc) => this.toEntity(doc));
+        };
         
         async getById(id: string): Promise<Book | null> {
             const doc = await BookModel.findById(id);

@@ -9,7 +9,7 @@ export const CreateBook = () => {
 
     const mutation = useMutation({
         mutationFn: (newBook: typeof formData) => {
-            return axios.post('http://localhost:3005/books', newBook)
+            return axios.post(import.meta.env.VITE_API_URL + '/books', newBook)
         },
         onSuccess: () => {
             alert('Livro cadastrado com sucesso!')

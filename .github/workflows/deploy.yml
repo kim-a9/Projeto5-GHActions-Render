@@ -32,8 +32,8 @@ jobs:
         cache-dependency-path: './backend/package-lock.json'
     
     - name: Install Back-end dependencies
-      run: cd backend
-          npm install
+      run: npm ci
+      working-directory: ./backend
     
     - name: Build project
       run: npm run build

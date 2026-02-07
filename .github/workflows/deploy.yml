@@ -33,7 +33,7 @@ jobs:
     
     - name: Install Back-end dependencies
       run: |
-          cd backend
+          cd .\backend\
           npm ci
     
     - name: Build project

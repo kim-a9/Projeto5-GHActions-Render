@@ -6,11 +6,14 @@ import { connectToMongo } from '../../infra/database/MongoConnection';
 
 const app = express();
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin: ['https://seu-front.vercel.app', 'http://localhost:5173'], // Permite local e produção
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true
+}));
 
 app.use(bookRoutes); 
 
-// const PORT = config.port;
 const URI = config.mongoUrl;
 
 if(!URI) {
@@ -18,10 +21,6 @@ if(!URI) {
 };
 connectToMongo(URI); 
 
-
-// app.listen(PORT, () => {
-//   console.log(`Servidor rodando em http://localhost:${PORT}`);
-// });
 
 
 export default app;

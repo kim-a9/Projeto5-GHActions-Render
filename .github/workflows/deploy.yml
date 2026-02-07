@@ -33,10 +33,18 @@ jobs:
     
     - name: Install Back-end dependencies
       run: cd backend && npm install
-    
+
+    - name: Install Backend
+      run: npm install
+      working-directory: ./backend
+
     - name: Build project
       run: npm run build
-    
+
+    - name: Install Frontend
+      run: npm install
+      working-directory: ./frontend
+
     - name: Run tests
       run: npm test
       env:

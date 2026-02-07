@@ -31,15 +31,13 @@ jobs:
         cache: 'npm'
         cache-dependency-path: './backend/package-lock.json'
     
-    - name: Install Back-end dependencies
-      run: cd backend && npm install
+    - name: Install backend dependencies
+      working-directory: ./backend
+      run: npm install
 
-    - name: Build project
+    - name: Build backend
+      working-directory: ./backend
       run: npm run build
-
-    - name: Install Frontend
-      run: npm install && npm run build
-      working-directory: ./frontend
 
     - name: Run tests
       run: npm test
@@ -47,6 +45,14 @@ jobs:
         MONGO_URL: mongodb://localhost:27017/ghactions_render
         JWT_SECRET: 'aprofunda_projeto5_ghactions_render'
         NODE_ENV: test
+
+    - name: Install frontend dependencies
+      working-directory: ./frontend
+      run: npm install
+
+    - name: Build Frontend (Vite)
+      working-directory: ./frontend
+      run: npm run build
 
   deploy:
     name: Deploy to Render

@@ -15,7 +15,7 @@ interface BookFormState {
 const initialData: BookFormData = {
     title: '',
     author: '',
-    genre: 'Ficção'
+    genre: ''
 }
 
 export const useBookFormStore = create<BookFormState>((set) => ({

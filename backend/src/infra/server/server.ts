@@ -21,6 +21,4 @@ if(!URI) {
 };
 connectToMongo(URI); 
 
-
-
 export default app;

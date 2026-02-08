@@ -7,8 +7,8 @@ import { connectToMongo } from '../../infra/database/MongoConnection';
 const app = express();
 app.use(express.json());
 app.use(cors({
-  origin: ['https://seu-front.vercel.app', 'http://localhost:5173'], // Permite local e produção
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  origin: ['https://projeto5-gh-actions-render.vercel.app/', 'http://localhost:5173'], 
+  methods: ['GET', 'POST', 'PATCH', 'DELETE'],
   credentials: true
 }));
 
@@ -20,7 +20,5 @@ if(!URI) {
   throw new Error('Erro ao conectar ao banco de dados');
 };
 connectToMongo(URI); 
-
-
 
 export default app;

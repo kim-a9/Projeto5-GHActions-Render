@@ -2,7 +2,6 @@ import { useBooks } from "../hooks/useBooks";
 import type { Book } from "../types/Book";
 
 export const Home = () => {
-    <h1>TELA HOME FUNCIONANDO</h1>
     const { data: books, isLoading, isError } = useBooks();
 
     if (isLoading) return <div className="p-20 text-center text-stone-500 animate-pulse">Consultando o acervo...</div>;
